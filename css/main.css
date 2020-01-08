@@ -1,0 +1,16 @@
+body {
+    display: inline-block;
+}
+
+a {
+    margin: 100px;
+}
+
+form {
+    display: grid;
+    margin: auto;
+    padding: auto;
+    grid-template-columns: 2;
+    grid-template-rows: 3;
+    width: 350px;
+}
