@@ -7,26 +7,20 @@
         fechaActual = diaActual.toDateString();
         horaActual = diaActual.toLocaleTimeString();
         dia = fechaActual.split(/ /, 1);
-        console.log(dia)
+
         if (dia == "Mon") {
             dia = "Lunes";
-        }
-        if (dia == "Tue") {
+        } else if (dia == "Tue") {
             dia = "Martes";
-        }
-        if (dia == "Wed") {
+        } else if (dia == "Wed") {
             dia = "Miércoles";
-        }
-        if (dia == "Thu") {
+        } else if (dia == "Thu") {
             dia = "jueves";
-        }
-        if (dia == "Fri") {
+        } else if (dia == "Fri") {
             dia = "Viernes";
-        }
-        if (dia == "Sat") {
+        } else if (dia == "Sat") {
             dia = "Sabado";
-        }
-        if (dia == "Sun") {
+        } else if (dia == "Sun") {
             dia = "Domingo";
         }
 
@@ -34,20 +28,21 @@
         hora = horaActual.split(/:/, 1);
         elementoMuestraFecha.innerText = "El día actual es: " + dia;
 
-        switch (hora) {
-            case hora < 18:
-                elementoMuestraHora.innerText = "Son las " + horaActual + " Ya es hora de que dejes de trabajar. Hay que conciliar la vida laboral con la familiar";
-                break;
-
-            case hora < 8:
-                elementoMuestraHora.innerText = "Son las" + horaActual + " Ya es hora de que comiences a trabajar. Hay que levantar el país";
-                break;
-
-            default:
-                elementoMuestraHora.innerText = "Son las " + horaActual + " Pronto llegan las vacaciones. Aguanta ";
-                break;
-        }
+        elementoMuestraHora.innerText = escribe(hora);
     }
+
+    let escribe = function(hora) {
+        if (hora < 18) {
+            return "Son las " + horaActual + " Ya es hora de que dejes de trabajar. Hay que conciliar la vida laboral con la familiar";
+        }
+
+        if (hora < 8) {
+            return "Son las" + horaActual + " Ya es hora de que comiences a trabajar. Hay que levantar el país";
+        }
+
+        return "Son las " + horaActual + " Pronto llegan las vacaciones. Aguanta ";
+    }
+
 
     let cierraVentana = function() {
         window.close();
@@ -59,9 +54,8 @@
         elementoBoton[1].addEventListener("click", cierraVentana);
         elementoMuestraFecha = document.getElementById("muestraFecha");
         elementoMuestraHora = document.getElementById("muestraHora");
-    };
+    }
 
-    document.addEventListener("click", init);
-
+    document.addEventListener("DOMContentLoaded", init);
 
 }

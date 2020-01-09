@@ -28,7 +28,7 @@
 </html>
         `
         )
-        ventanaTodo = document.close();
+        ventanaTodo.document.close();
     }
 
     let abrirFormularioEmpleado = function() {
@@ -62,7 +62,7 @@
             </html>
         `
         )
-        ventanaFormulario = document.close();
+        ventanaFormulario.document.close();
     }
 
     document.addEventListener("DOMContentLoaded", function init() {
