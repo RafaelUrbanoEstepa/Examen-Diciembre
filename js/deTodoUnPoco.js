@@ -6,6 +6,7 @@
         let diaActual = new Date;
         fechaActual = diaActual.toDateString();
         horaActual = diaActual.toLocaleTimeString();
+
         dia = fechaActual.split(/ /, 1);
 
         if (dia == "Mon") {
@@ -26,21 +27,23 @@
 
 
         hora = horaActual.split(/:/, 1);
+        arrayHoraYMinutos = horaActual.split(/:/, 2)
+        horaMostrada = arrayHoraYMinutos[0] + ":" + arrayHoraYMinutos[1];
         elementoMuestraFecha.innerText = "El día actual es: " + dia;
 
         elementoMuestraHora.innerText = escribe(hora);
     }
 
     let escribe = function(hora) {
-        if (hora < 18) {
-            return "Son las " + horaActual + " Ya es hora de que dejes de trabajar. Hay que conciliar la vida laboral con la familiar";
+        if (hora > 18) {
+            return "Son las " + horaMostrada + " Ya es hora de que dejes de trabajar. Hay que conciliar la vida laboral con la familiar";
         }
 
         if (hora < 8) {
-            return "Son las" + horaActual + " Ya es hora de que comiences a trabajar. Hay que levantar el país";
+            return "Son las" + horaMostrada + " Ya es hora de que comiences a trabajar. Hay que levantar el país";
         }
 
-        return "Son las " + horaActual + " Pronto llegan las vacaciones. Aguanta ";
+        return "Son las " + horaMostrada + " Pronto llegan las vacaciones. Aguanta ";
     }
 
 
